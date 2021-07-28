@@ -1,11 +1,12 @@
-import Profile from './social-profile/Profile';
-import Statistics from './statistics/Statistics';
-import user from './social-profile/user.json';
-import statisticalData from './statistics/statistical-data.json';
+import Profile from './components/Profile/Profile';
+import Statistics from './components/Statistics/Statistics';
+import user from './components/Profile/user.json';
+import statisticalData from './components/Statistics/statistical-data.json';
+import s from './App.module.css';
 
 export default function App() {
   return (
-    <div>
+    <div className={s.app}>
       <Profile
         name={user.name}
         tag={user.tag}

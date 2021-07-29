@@ -1,8 +1,10 @@
-import Profile from './components/Profile/Profile';
-import Statistics from './components/Statistics/Statistics';
-import user from './components/Profile/user.json';
-import statisticalData from './components/Statistics/statistical-data.json';
 import s from './App.module.css';
+import Profile from './components/Profile/Profile';
+import user from './components/Profile/user.json';
+import Statistics from './components/Statistics/Statistics';
+import statisticalData from './components/Statistics/statistical-data.json';
+import FriendList from './components/FriendList/FriendList';
+import friends from './components/FriendList/friends.json';
 
 export default function App() {
   return (
@@ -15,6 +17,7 @@ export default function App() {
         stats={user.stats}
       />
       <Statistics title="Upload stats" stats={statisticalData} />
+      <FriendList friends={friends} />
     </div>
   );
 }

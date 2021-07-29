@@ -22,7 +22,7 @@ export default function Profile({ name, avatar, tag, location, stats }) {
         </li>
         <li>
           <span className={s.label}>Likes</span>
-          <span className={s.quantity}>{stats.followers}</span>
+          <span className={s.quantity}>{stats.likes}</span>
         </li>
       </ul>
     </div>

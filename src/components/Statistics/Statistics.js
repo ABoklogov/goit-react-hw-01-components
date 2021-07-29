@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import s from './Statistical.module.css';
+import generateColor from '../../helpers/generateColor';
 
 export default function Statistics({ title, stats }) {
   return (
@@ -18,12 +19,13 @@ export default function Statistics({ title, stats }) {
   );
 }
 
-function generateColor() {
-  const color = '#' + Math.floor(Math.random() * 16777215).toString(16);
-  return { backgroundColor: `${color}` };
-}
-
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.array.isRequired,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
 };

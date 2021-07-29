@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import s from './FriendList.module.css';
+import defaultImage from '../../images/default.jpg';
 
 const FriendList = ({ friends }) => {
   return (
@@ -9,7 +10,7 @@ const FriendList = ({ friends }) => {
           <span className={friend.isOnline ? s.online : s.offline}></span>
           <img
             className={s.avatar}
-            src={friend.avatar}
+            src={friend.avatar || defaultImage}
             alt={friend.name}
             width="48"
           />
@@ -21,7 +22,14 @@ const FriendList = ({ friends }) => {
 };
 
 FriendList.propTypes = {
-  friends: PropTypes.array.isRequired,
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      avatar: PropTypes.string,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default FriendList;
